@@ -4,14 +4,14 @@ import { NavLink } from 'react-router-dom';
 const Header = () => {
   return (
     <header>
-      <h1>Book Management App</h1>
+      <h1>SoilSense App</h1>
       <hr />
       <div className="links">
         <NavLink to="/" className="link" activeClassName="active" exact>
-          Books List
+            List
         </NavLink>
         <NavLink to="/add" className="link" activeClassName="active">
-          Add Book
+          Add Item
         </NavLink>
       </div>
     </header>

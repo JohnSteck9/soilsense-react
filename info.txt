@@ -1,0 +1,19 @@
+soilsensedb
+soilsense - table
+soilsenseapi
+
+id str -> uuid
+max_water int
+humidity_pct int
+lighting_pct int
+pumps str
+sensor_location str
+nozzles_location str
+
+Створіть сайт, який дозволяє відображати  дані з сенсорів про рівень
+- вологості,
+- освітлення (щогодини),
+- локацію (gps) розташування датчика,
+- локації сопел системи поливу (gps координати),
+- дані про максимально можливу витрату води кожним соплом,
+- насоси, які встановлені для поливу кожної ділянки
