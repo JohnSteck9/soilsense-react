@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-soilsense-dev-223617-authRole",
+      "UnauthRoleArn": "arn:aws:iam::403121419063:role/amplify-soilsense-dev-223617-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::403121419063:role/amplify-soilsense-dev-223617-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-soilsense-dev-223617-deployment",
+      "UnauthRoleName": "amplify-soilsense-dev-223617-unauthRole",
+      "StackName": "amplify-soilsense-dev-223617",
+      "StackId": "arn:aws:cloudformation:us-east-1:403121419063:stack/amplify-soilsense-dev-223617/30d40240-48af-11ec-810a-0a9d5c08e135",
+      "AmplifyAppId": "d1oi9ayau7c1pt"
+    },
+    "categories": {
+      "function": {
+        "soilapi": {
+          "deploymentBucketName": "amplify-soilsense-dev-223617-deployment",
+          "s3Key": "amplify-builds/soilapi-48326c7952325a4b6a51-build.zip"
+        }
+      }
+    }
+  }
+}

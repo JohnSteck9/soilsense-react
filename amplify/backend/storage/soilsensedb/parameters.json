@@ -1,0 +1,5 @@
+{
+    "tableName": "soilsense",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S"
+}
