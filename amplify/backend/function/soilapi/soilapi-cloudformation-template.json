@@ -110,12 +110,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "soilsenseLambdaRole2ab354f4",
+            "soilsensereactLambdaRole5b5cbe52",
             {
               "Fn::Join": [
                 "",
                 [
-                  "soilsenseLambdaRole2ab354f4",
+                  "soilsensereactLambdaRole5b5cbe52",
                   "-",
                   {
                     "Ref": "env"

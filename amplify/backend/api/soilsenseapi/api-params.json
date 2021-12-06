@@ -19,8 +19,8 @@
   "privacy": {
     "auth": 0,
     "unauth": 0,
-    "authRoleName": "amplify-soilsense-dev-223617-authRole",
-    "unAuthRoleName": "amplify-soilsense-dev-223617-unauthRole"
+    "authRoleName": "amplify-soilsensereact-dev-222810-authRole",
+    "unAuthRoleName": "amplify-soilsensereact-dev-222810-unauthRole"
   },
   "dependsOn": [
     {
