@@ -18,7 +18,10 @@ export const createItem = async (item) => {
             lighting_pct: item.lighting_pct,
             pumps: item.pumps,
             sensor_location: item.sensor_location,
-            nozzles_location: item.nozzles_location
+            nozzles_location: item.nozzles_location,
+            timestamp: item.nozzles_location,
+            sensor_id: item.sensor_id,
+            sensor_type: item.sensor_type
         }
     })
 }
