@@ -82,8 +82,9 @@ def update_item(id):
 
 @app.route(BASE_ROUTE + '/<id>', methods=['DELETE'])
 def delete_item_by_id(id):
-    request_json = request.get_json()
-    print(request.get_json().get("user_name"))
+    print("deel", id)
+#     request_json = request.get_json()
+#     print("deel", request.get_json().get("id"))
     client.delete_item(TableName=TABLE, Key={'id': {'S': id}})
     return jsonify(message=f"item deleted - {id}")
 

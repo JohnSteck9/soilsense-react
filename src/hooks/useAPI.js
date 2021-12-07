@@ -47,6 +47,8 @@ export const updateItem = async (id, item) => {
 
 // DELETE
 export const delItem = async (id) => await API.del('soilsenseapi', `/items/${id}`)
+    .then(res => console.log(res))
+    .catch(e => console.error(e))
 
 // delItem()
 //     .then(res => console.log(res))
