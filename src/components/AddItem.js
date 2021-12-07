@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {Button, Form} from "react-bootstrap";
 import {createItem} from "../hooks/useAPI";
 
+
+
 const AddItem = ({history}) => {
     const [maxWater, setMaxWater] = useState(0);
     const [humidityPct, setHumidityPct] = useState(0);
@@ -9,6 +11,10 @@ const AddItem = ({history}) => {
     const [pumps, setPumps] = useState('');
     const [sensorLocation, setSensorLocation] = useState('');
     const [nozzlesLocation, setNozzlesLocation] = useState('');
+    const [timestamp, setTimestamp] = useState('');
+    const [sensorId, setSensorId] = useState('');
+    const [sensorType, setSensorType] = useState('');
+    const [apiKey, setApiKey] = useState('keyhere');
 
     const handleOnSubmit = () => {
 
@@ -18,7 +24,11 @@ const AddItem = ({history}) => {
             lighting_pct: lightingPct,
             pumps: pumps,
             sensor_location: sensorLocation,
-            nozzles_location: nozzlesLocation
+            nozzles_location: nozzlesLocation,
+            timestamp: timestamp,
+            sensor_id: sensorId,
+            sensor_type: sensorType,
+            API_KEY: apiKey
         }
         console.log(newItem)
         createItem(newItem).then((i => {
@@ -101,6 +111,55 @@ const AddItem = ({history}) => {
                             placeholder="Enter nozzles_location"
                             onChange={(e) => {
                                 setNozzlesLocation(e.target.value);
+                            }}
+                        />
+                    </Form.Group>
+                    {/*==========================*/}
+                    <Form.Group controlId="timestamp">
+                        <Form.Label>Timestamp</Form.Label>
+                        <Form.Control
+                            className="input-control"
+                            type="text"
+                            name="timestamp"
+                            placeholder="Enter timestamp"
+                            onChange={(e) => {
+                                setTimestamp(e.target.value);
+                            }}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="sensor_id">
+                        <Form.Label>sensor_id</Form.Label>
+                        <Form.Control
+                            className="input-control"
+                            type="text"
+                            name="sensor_id"
+                            placeholder="Enter sensor_id"
+                            onChange={(e) => {
+                                setSensorId(e.target.value);
+                            }}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="sensor_type">
+                        <Form.Label>sensor_type</Form.Label>
+                        <Form.Control
+                            className="input-control"
+                            type="text"
+                            name="sensor_type"
+                            placeholder="Enter sensor_type"
+                            onChange={(e) => {
+                                setSensorType(e.target.value);
+                            }}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="api_key">
+                        <Form.Label>API KEY</Form.Label>
+                        <Form.Control
+                            className="input-control"
+                            type="text"
+                            name="api_key"
+                            placeholder="Enter api key"
+                            onChange={(e) => {
+                                setApiKey(e.target.value);
                             }}
                         />
                     </Form.Group>
