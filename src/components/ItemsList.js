@@ -9,9 +9,11 @@ const ItemsList = () => {
         getAllItems()
             .then(res => {
                 setItems(res.data.Items);
+                return items;
             })
-            .catch(e => { console.error(e) })
             .then(arr => { console.log(arr) })
+            .catch(e => { console.error(e) })
+
 
     }, []);
 

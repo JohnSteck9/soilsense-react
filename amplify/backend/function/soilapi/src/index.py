@@ -29,8 +29,10 @@ def get_item_by_id(id):
 @app.route(BASE_ROUTE, methods=['POST'])
 def create_item():
     request_json = request.get_json()
-#     print(request.get_json().get("id"))
-    if request_json.get("API_KEY") != "keyhere":
+    print('aaaa', request.get_json().get("id"))
+    print('bbbb', request_json)
+    print('cccc', request_json.get("api_key"))
+    if request_json.get("api_key") != "1000":
         return jsonify(message="Wrong API key")
 
     client.put_item(TableName=TABLE, Item={
@@ -44,7 +46,7 @@ def create_item():
         'timestamp': {'S': request_json.get("timestamp")},
         'sensor_id': {'S': request_json.get("sensor_id")},
         'sensor_type': {'S': request_json.get("sensor_type")},
-        'API_KEY': {'S': request_json.get("API_KEY")},
+        'api_key': {'S': request_json.get("api_key")},
 
 
     })

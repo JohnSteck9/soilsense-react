@@ -22,11 +22,10 @@ export const createItem = async (item) => {
             timestamp: item.nozzles_location,
             sensor_id: item.sensor_id,
             sensor_type: item.sensor_type,
-            API_KEY: item.api_key
+            api_key: item.api_key
         }
     })
 }
-
 
 // PUT
 export const updateItem = async (id, item) => {

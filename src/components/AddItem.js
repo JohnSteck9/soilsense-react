@@ -28,7 +28,7 @@ const AddItem = ({history}) => {
             timestamp: timestamp,
             sensor_id: sensorId,
             sensor_type: sensorType,
-            API_KEY: apiKey
+            api_key: apiKey
         }
         console.log(newItem)
         createItem(newItem).then((i => {

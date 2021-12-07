@@ -17,7 +17,17 @@ args = parser.parse_args()
 
 # create and format values for HTTPS request
 publish_url = 'https://' + args.endpoint + ':8443/topics/' + args.topic + '?qos=1'
-args.message = {"timestamp": str(time.time()), "sensor_id": "4", "sensor_type": "CLOUD-4", "smoke_sensor": str(randint(0,1)), "sensor_model": str(str(randint(0, 100))), "responsible_person": str(randint(0, 100))}
+args.message = {
+                   "max_water": str(randint(0,100)),
+                   "humidity_pct": str(randint(0,100)),
+                   "lighting_pct": str(randint(0,100)),
+                   "pumps": "My Pumps",
+                   "sensor_location": f'{str(randint(0,100))}, {str(randint(0,100))}',
+                   "nozzles_location": f'{str(randint(0,100))}, {str(randint(0,100))}',
+                   "timestamp": str(time.time()),
+                   "sensor_id": "4",
+                   "sensor_type": "CLOUD-4",
+               }
 publish_msg = json.dumps(args.message)
 
 # make request
