@@ -8,6 +8,7 @@ const ItemsList = () => {
     useEffect(() => {
         getAllItems()
             .then(res => {
+                console.log(res);
                 setItems(res.data.Items);
                 return items;
             })
