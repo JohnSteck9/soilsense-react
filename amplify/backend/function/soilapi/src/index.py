@@ -79,7 +79,7 @@ def update_item(id):
 
 @app.route(BASE_ROUTE + '/<id>', methods=['DELETE'])
 def delete_item_by_id(id):
-    print("deel", id)
+#     print("deel", id)
 #     request_json = request.get_json()
 #     print("deel", request.get_json().get("id"))
     client.delete_item(TableName=TABLE, Key={'id': {'S': id}})

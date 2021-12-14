@@ -3,16 +3,16 @@
 
 // GET ALL
 // export const getAllItems = async () => await API.get('soilsenseapi', '/items')
-export const getAllItems = async () => await API.get('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', '/items')
+export const getAllItems = async () => await axios.get('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', '/items')
 
 
 // GET BY ID
-export const getById = async (id) => await API.get('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', `/items/${id}`)
+export const getById = async (id) => await axios.get('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', `/items/${id}`)
 
 
 // POST
 export const createItem = async (item) => {
-    return await API.post('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', '/items', {
+    return await axios.post('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', '/items', {
         body: {
             max_water: item.max_water,
             humidity_pct: item.humidity_pct,
@@ -30,7 +30,7 @@ export const createItem = async (item) => {
 
 // PUT
 export const updateItem = async (id, item) => {
-    return await API.put('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev/', `/items/${id}`, {
+    return await axios.put('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev/', `/items/${id}`, {
         body: {
             max_water: item.max_water,
             humidity_pct: item.humidity_pct,
@@ -47,7 +47,8 @@ export const updateItem = async (id, item) => {
 }
 
 // DELETE
-export const delItem = async (id) => await API.del('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', `/items/${id}`)
+export const delItem = async (id) => await axios.delete(`http://dotemus.xyz:5000/uklon/${id}`)
+
     .then(res => console.log(res))
     .catch(e => console.error(e))
 
