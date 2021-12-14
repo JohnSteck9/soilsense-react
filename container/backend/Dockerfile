@@ -13,7 +13,7 @@ RUN pip3 install --user pipenv
 RUN pip3 --no-cache-dir install --upgrade awscli
 RUN pip3 install gunicorn
 
-ENV STORAGE_UKLONDB_NAME=soilsense-dev
+ENV STORAGE_SOILSENSEDB_NAME=soilsense-dev
 
 EXPOSE 5000
 
