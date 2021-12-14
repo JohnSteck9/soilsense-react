@@ -1,14 +1,16 @@
 // import {API} from "aws-amplify";
-
+import axios from "axios";
 
 // GET ALL
 // export const getAllItems = async () => await API.get('soilsenseapi', '/items')
 export const getAllItems = async () => await axios.get('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', '/items')
-
+    .then(res => console.log(res))
+    .catch(e => console.error(e))
 
 // GET BY ID
 export const getById = async (id) => await axios.get('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', `/items/${id}`)
-
+    .then(res => console.log(res))
+    .catch(e => console.error(e))
 
 // POST
 export const createItem = async (item) => {
@@ -26,6 +28,8 @@ export const createItem = async (item) => {
             api_key: item.api_key
         }
     })
+        .then(res => console.log(res))
+        .catch(e => console.error(e))
 }
 
 // PUT
@@ -44,11 +48,12 @@ export const updateItem = async (id, item) => {
             api_key: item.api_key
         }
     })
+        .then(res => console.log(res))
+        .catch(e => console.error(e))
 }
 
 // DELETE
 export const delItem = async (id) => await axios.delete(`http://dotemus.xyz:5000/uklon/${id}`)
-
     .then(res => console.log(res))
     .catch(e => console.error(e))
 
