@@ -3,18 +3,18 @@ import axios from "axios";
 
 // GET ALL
 // export const getAllItems = async () => await API.get('soilsenseapi', '/items')
-export const getAllItems = async () => await axios.get('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', '/items')
+export const getAllItems = async () => await axios.get('http://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev/items')
     .then(res => console.log(res))
     .catch(e => console.error(e))
 
 // GET BY ID
-export const getById = async (id) => await axios.get('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', `/items/${id}`)
+export const getById = async (id) => await axios.get(`http://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev/items/${id}`)
     .then(res => console.log(res))
     .catch(e => console.error(e))
 
 // POST
 export const createItem = async (item) => {
-    return await axios.post('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev', '/items', {
+    return await axios.post(`http://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev/items`, {
         body: {
             max_water: item.max_water,
             humidity_pct: item.humidity_pct,
@@ -34,7 +34,7 @@ export const createItem = async (item) => {
 
 // PUT
 export const updateItem = async (id, item) => {
-    return await axios.put('https://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev/', `/items/${id}`, {
+    return await axios.put(`http://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev/items/${id}`, {
         body: {
             max_water: item.max_water,
             humidity_pct: item.humidity_pct,
@@ -53,7 +53,7 @@ export const updateItem = async (id, item) => {
 }
 
 // DELETE
-export const delItem = async (id) => await axios.delete(`http://dotemus.xyz:5000/uklon/${id}`)
+export const delItem = async (id) => await axios.delete(`http://k796h3oyyh.execute-api.us-east-1.amazonaws.com/dev/items/${id}`)
     .then(res => console.log(res))
     .catch(e => console.error(e))
 
