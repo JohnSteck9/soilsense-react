@@ -7,12 +7,15 @@ from flask_cors import CORS
 from flask import Flask, jsonify, request
 from uuid import uuid4
 
-os.environ['AWS_DEFAULT_REGION'] = 'us-east-1'
-client = boto3.client("dynamodb")
+# os.environ['AWS_DEFAULT_REGION'] = 'us-east-1'
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+# client = boto3.client("dynamodb")
+client = boto3.client("dynamodb", region_name='us-east-2', aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 TABLE = os.environ.get("STORAGE_SOILSENSEDB_NAME")
 BASE_ROUTE = "/items"
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*", "allow_headers": "*", "expose_headers": "*"}})
 
 
 @app.route(BASE_ROUTE, methods=['GET'])
@@ -29,9 +32,6 @@ def get_item_by_id(id):
 @app.route(BASE_ROUTE, methods=['POST'])
 def create_item():
     request_json = request.get_json()
-    print('aaaa', request.get_json().get("id"))
-    print('bbbb', request_json)
-    print('cccc', request_json.get("api_key"))
     if request_json.get("api_key") != "1000":
         return jsonify(message="Wrong API key")
 
@@ -47,8 +47,6 @@ def create_item():
         'sensor_id': {'S': request_json.get("sensor_id")},
         'sensor_type': {'S': request_json.get("sensor_type")},
         'api_key': {'S': request_json.get("api_key")},
-
-
     })
     return jsonify(message="item created")
 
@@ -79,7 +77,6 @@ def update_item(id):
     return jsonify(message='item updated')
 
 
-
 @app.route(BASE_ROUTE + '/<id>', methods=['DELETE'])
 def delete_item_by_id(id):
     print("deel", id)
@@ -89,6 +86,9 @@ def delete_item_by_id(id):
     return jsonify(message=f"item deleted - {id}")
 
 
-
 def handler(event, context):
     return awsgi.response(app, event, context)
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
