@@ -19,3 +19,4 @@ nozzles_location str
 - насоси, які встановлені для поливу кожної ділянки
 
 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
+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

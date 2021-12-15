@@ -20,7 +20,12 @@ CORS(app, resources={r"/api/*": {"origins": "*", "allow_headers": "*", "expose_h
 
 @app.route(BASE_ROUTE, methods=['GET'])
 def get_all_items():
-    return jsonify(data=client.scan(TableName=TABLE))
+    response = client.scan(TableName=TABLE)
+    data = response['Items']
+    while response.get('LastEvaluatedKey'):
+        response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
+        data.extend(response['Items'])
+    return jsonify(data)
 
 
 @app.route(BASE_ROUTE + '/<id>', methods=['GET'])
