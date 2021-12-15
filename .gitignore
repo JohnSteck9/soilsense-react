@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-info.txt
+.info.log
 
 .idea/
 .vscode/

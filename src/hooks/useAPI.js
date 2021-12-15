@@ -4,12 +4,18 @@ import axios from "axios";
 // GET ALL
 // export const getAllItems = async () => await API.get('soilsenseapi', '/items')
 export const getAllItems = async () => await axios.get('http://johnsteck.xyz:80/api/')
-    .then(res => console.log(res))
+    .then(res => {
+        console.log(res);
+        return res;
+    })
     .catch(e => console.error(e))
 
 // GET BY ID
 export const getById = async (id) => await axios.get(`http://johnsteck.xyz:80/api/${id}`)
-    .then(res => console.log(res))
+    .then(res => {
+        console.log(res);
+        return res;
+    })
     .catch(e => console.error(e))
 
 // POST
@@ -28,7 +34,10 @@ export const createItem = async (item) => {
             api_key: item.api_key
         }
     })
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res);
+            return res;
+        })
         .catch(e => console.error(e))
 }
 
@@ -48,7 +57,10 @@ export const updateItem = async (id, item) => {
             api_key: item.api_key
         }
     })
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res);
+            return res;
+        })
         .catch(e => console.error(e))
 }
 
