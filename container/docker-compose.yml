@@ -1,15 +1,15 @@
 version: '3'
 services:
   back:
-    hostname: backend
-    image: johnsteck/backend
+    hostname: back
+    image: johnsteck/back
     environment:
       - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
       - AWS_REGION=us-east-1
       - STORAGE_SOILSENSEDB_NAME=soilsense-dev
     build:
-      dockerfile: ./backend/Dockerfile
+      dockerfile: ./back/Dockerfile
     deploy:
       x-aws-autoscaling:
         cpu: 5
@@ -17,11 +17,11 @@ services:
     ports:
       - 5000:5000
   front:
-    hostname: frontend
+    hostname: front
     depends_on:
       - back
-    image: johnsteck/frontend
+    image: johnsteck/front
     build:
-      dockerfile: ./frontend/Dockerfile
+      dockerfile: ./front/Dockerfile
     ports:
       - 80:80
