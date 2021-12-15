@@ -15,7 +15,7 @@
       "function": {
         "soilapi": {
           "deploymentBucketName": "amplify-soilsensereact-dev-222810-deployment",
-          "s3Key": "amplify-builds/soilapi-35432f757670722f3554-build.zip"
+          "s3Key": "amplify-builds/soilapi-676e55615774696d624e-build.zip"
         }
       }
     }

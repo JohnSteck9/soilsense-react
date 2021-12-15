@@ -43,7 +43,7 @@ export const createItem = async (item) => {
 
 // PUT
 export const updateItem = async (id, item) => {
-    return await axios.put(`http://johnsteck.xyz:80/api/${id}`, {
+    return await axios.put(`http://www.johnsteck.xyz:80/api/${id}`, {
         body: {
             max_water: item.max_water,
             humidity_pct: item.humidity_pct,
@@ -65,7 +65,7 @@ export const updateItem = async (id, item) => {
 }
 
 // DELETE
-export const delItem = async (id) => await axios.delete(`http://johnsteck.xyz:5000/items/${id}`)
+export const delItem = async (id) => await axios.delete(`http://www.johnsteck.xyz:5000/items/${id}`)
     .then(res => console.log(res))
     .catch(e => console.error(e))
 
