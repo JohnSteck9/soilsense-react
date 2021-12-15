@@ -7,7 +7,7 @@ RUN apt-get install -y git
 
 RUN git clone https://github.com/JohnSteck9/soilsense-react.git
 
-WORKDIR /publish/soilsense-react/1
+WORKDIR /publish/soilsense-react/iot/john1
 
 RUN pip3 install requests
 
