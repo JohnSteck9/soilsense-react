@@ -14,7 +14,7 @@ export const getById = async (id) => await axios.get(`http://johnsteck.xyz:80/ap
 
 // POST
 export const createItem = async (item) => {
-    return await axios.post(`http://johnsteck.xyz:80/api/`, {
+    return await axios.post(`http://www.johnsteck.xyz/api/`, {
         body: {
             max_water: item.max_water,
             humidity_pct: item.humidity_pct,
