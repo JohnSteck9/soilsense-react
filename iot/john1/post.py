@@ -25,4 +25,4 @@ while True:
     x = requests.post(url, data=json.dumps(myobj), headers=headers)
     print("SENT_OBJ:", myobj)
     print(x.text)
-    time.sleep(10)
+    time.sleep(1)
