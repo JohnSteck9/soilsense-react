@@ -9,17 +9,25 @@ const ItemsList = () => {
         getAllItems()
             .then(res => {
                 console.log(res);
-                setItems(res.data);
-
-                if(!res?.data) {
+                if(res){
+                    if(res.data){
+                        setItems(res.data);
+                    } else {
+                        setItems(res);
+                    }
+                    // return res
+                } else {
                     getAllItems2()
                         .then(res2 => {
-                            console.log(res2);
-                            setItems(res2?.data);
+                            if(res2.data){
+                                setItems(res2.data);
+                            } else {
+                                setItems(res2);
+                            }
+                            // return res2
                         })
+                        .catch(e => console.error(e))
                 }
-
-
                 return items;
             })
             .then(arr => { console.log(arr) })
