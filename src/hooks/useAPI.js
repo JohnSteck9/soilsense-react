@@ -74,13 +74,18 @@ export const updateItem = async (id, item) => {
 
 // DELETE
 export const delItem = async (id) => {
-    await axios.delete(`http://www.johnsteck.xyz:5000/items/${id}`)
-        .then(res => console.log(res))
-        .catch(e => console.error(e))
 
     await axios.delete(`http://johnsteck.xyz:5000/items/${id}`)
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res)
+            if (!res) {
+                axios.delete(`http://www.johnsteck.xyz:5000/items/${id}`)
+                    .then(res2 => console.log(res2))
+                    .catch(e2 => console.error(e2))
+            }
+        })
         .catch(e => console.error(e))
+
 
 }
 
