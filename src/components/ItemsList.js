@@ -10,19 +10,26 @@ const ItemsList = () => {
             .then(res => {
                 console.log(res);
                 if(res){
-                    if(res.data){
-                        setItems(res.data);
+                    if(res?.data){
+                        console.log(res?.data);
+                        setItems(res?.data);
                     } else {
+                        console.log(res);
                         setItems(res);
                     }
                     // return res
                 } else {
                     getAllItems2()
                         .then(res2 => {
-                            if(res2.data){
+                            if(res2?.data){
+                                console.log(res2?.data);
                                 setItems(res2.data);
-                            } else {
+                            } else if (res2) {
+                                console.log(res);
                                 setItems(res2);
+                            } else {
+                                console.log('GG');
+                                setItems([])
                             }
                             // return res2
                         })
