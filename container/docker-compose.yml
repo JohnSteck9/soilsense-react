@@ -12,7 +12,7 @@ services:
       dockerfile: ./back/Dockerfile
     deploy:
       x-aws-autoscaling:
-        cpu: 20
+        cpu: 1
         max: 3
     ports:
       - 5000:5000
