@@ -9,7 +9,7 @@ const ItemsList = () => {
         getAllItems()
             .then(res => {
                 console.log(res);
-                setItems(res.data.Items);
+                setItems(res.data);
                 return items;
             })
             .then(arr => { console.log(arr) })
