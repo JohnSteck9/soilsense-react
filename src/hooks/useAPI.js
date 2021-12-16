@@ -3,7 +3,15 @@ import axios from "axios";
 
 // GET ALL
 // export const getAllItems = async () => await API.get('soilsenseapi', '/items')
-export const getAllItems = async () => await axios.get('http://www.johnsteck.xyz:80/api/')
+export const getAllItems = async () => await axios.get('http://johnsteck.xyz:80/api/')
+    .then(res => {
+        console.log(res);
+        return res;
+    })
+    .catch(e => console.error(e))
+
+
+export const getAllItems2 = async () => await axios.get('http://www.johnsteck.xyz:80/api/')
     .then(res => {
         console.log(res);
         return res;
