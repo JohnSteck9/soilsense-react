@@ -6,6 +6,7 @@ import {delItem} from "../hooks/useAPI";
 const Item = ({ id, max_water, humidity_pct, lighting_pct, pumps, sensor_location, nozzles_location, timestamp, sensor_id, sensor_type }) => {
     const [editLink, setEditLink] = useState(`edit/${id.S}`);
 
+
     return (
         <Card style={{width: '18rem'}} className="book">
             <Card.Body>
